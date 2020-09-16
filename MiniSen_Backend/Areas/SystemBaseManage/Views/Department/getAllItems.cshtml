@@ -1,0 +1,22 @@
+﻿@model List<Department_ShowDTO>
+{
+  "status": "success",
+  "timestamp": "@(DateTime.Now.ToString())",
+  "sendData": {
+    "allDepartments": [
+
+        @foreach (var item in Model)
+        {
+            <text>
+                {
+                    "id": "@(item.Id)",
+                    "name": "@(item.Name)",
+                    "parentId": "@(item.ParentId)",
+                    "remarks": "@(item.RemarkInfo)",
+                    "sort": @(item.SortNumber)
+                }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+            </text>
+        }
+    ]
+  }
+}

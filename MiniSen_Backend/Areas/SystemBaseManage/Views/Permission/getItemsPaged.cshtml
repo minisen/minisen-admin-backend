@@ -1,0 +1,42 @@
+﻿@model List<Permission_ShowDTO>
+{
+    "status": "success",
+    "timestamp": "@(DateTime.Now.ToString())",
+    "sendData": {
+        "ItemsPaged": [
+
+            @foreach (var item in Model)
+            {
+                <text>
+                    {
+                        "id": "@(item.Id)",
+                        "name": "@(item.Name)",
+                        "sort": @(item.SortNumber),
+                        "apiType": "@(item.ApiType)",
+                        "apiUrl": "@(item.ApiUrl)",
+                        "apiMethod": "@(item.ApiMethod)",
+                        "remarks": "@(item.RemarkInfo)"
+                    }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+                </text>
+            }
+            @*{
+                "id": "226596425e172348015e1740805d0005",
+                "name": "获得所有菜单项数据",
+                "sort": 0,
+                "apiType": "MenuAPI",
+                "apiUrl": "/api/menu/getAllItems",
+                "apiMethod": "GET",
+                "remarks": "无"
+            },
+            {
+                "id": "226596425e17234000001740805d0005",
+                "name": "为角色设置菜单权限",
+                "sort": 1,
+                "apiType": "RoleAPI",
+                "apiUrl": "/api/role/setMenuPermissions",
+                "apiMethod": "POST",
+                "remarks": "无"
+            }*@
+        ]
+    }
+}

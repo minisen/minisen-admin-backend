@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiniSen_Common\MiniSen_Common.csproj" />
+    <ProjectReference Include="..\MiniSen_Service\MiniSen_Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVCFilter\Attribute\" />
+  </ItemGroup>
+
+</Project>

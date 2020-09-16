@@ -1,0 +1,24 @@
+﻿@model List<Dictionary_ShowDTO>
+{
+    "status": "success",
+    "timestamp": "@(DateTime.Now.ToString())",
+    "sendData": {
+        "ItemsPaged": [
+
+            @foreach (var item in Model)
+            {
+                <text>
+                {
+                    "id": "@(item.Id)",
+                    "name": "@(item.Name)",
+                    "value": "@(item.Value)",
+                    "type": "@(item.Type)",
+                    "sort": @(item.SortNumber),
+                    "remarks": "@(item.RemarkInfo)"
+                }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+                </text>
+            }
+            
+        ]
+    }
+}

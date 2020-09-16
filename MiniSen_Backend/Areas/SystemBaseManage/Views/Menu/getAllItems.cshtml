@@ -1,0 +1,218 @@
+﻿@model List<Menu_ShowDTO>
+{
+  "status": "success",
+  "timestamp": "@(DateTime.Now.ToString())",
+  "sendData": {
+    "navMenus": [
+
+        @foreach (var item in Model)
+        {
+            <text>
+                {
+                    "id": "@(item.Id)",
+                    "name": "@(item.Name)",
+                    "parentId": "@(item.ParentId)",
+                    "route": "@(item.PagePath)",
+                    "isMenuItem": @(2 == item.Type ? "true" : "false"),
+                    "icon": "@(item.Icon)",
+                    "type": "@(item.Type)",
+                    "pagePath": "@(item.PagePath)",
+                    "remarks": "@(item.RemarkInfo)",
+                    "sort": @(item.SortNumber)
+                }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+            </text>
+        }
+
+        @*{
+            "id": "2c9180895e13261e015e13469b7e0002",
+            "name": "系統管理",
+            "parent_id": "0",
+            "route": "",
+            "isMenuItem": false,
+            "icon": "el-icon-receiving",
+            "type": "1",
+            "pagePath": "",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0003",
+            "name": "账号管理",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "route": "sys/account",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "sys/account",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0004",
+            "name": "角色管理",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "route": "sys/role",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "sys/role",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0005",
+            "name": "菜單权限",
+            "parent_id": "2c9180895e13261e015e13469b7e0433",
+            "route": "sys/permission/menu",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "sys/permission/menu",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0454",
+            "name": "字典管理",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "route": "sys/dictionary",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "sys/dictionary",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e1111",
+            "name": "Echarts Demo",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "route": "sys/echartsDemo",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "sys/echartsDemo",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0044",
+            "name": "百度一下",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "route": "http://www.baidu.com",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "http://www.baidu.com",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0045",
+            "name": "菜單管理嵌套",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "route": "iframe:sys/menu",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "iframe:sys/menu",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0433",
+            "name": "权限管理",
+            "parent_id": "2c9180895e13261e015e13469b7e0002",
+            "isMenuItem": false,
+            "icon": "el-icon-receiving",
+            "type": "1",
+            "pagePath": "",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "2c9180895e13261e015e13469b7e0222",
+            "name": "Api权限",
+            "parent_id": "2c9180895e13261e015e13469b7e0433",
+            "route": "sys/permission/apiPermission",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "sys/permission/apiPermission",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "4c9189655e13261e015e13469b7e0002",
+            "name": "ESD管控系统",
+            "parent_id": "0",
+            "route": "",
+            "isMenuItem": false,
+            "icon": "el-icon-receiving",
+            "type": "1",
+            "pagePath": "",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "563280895e13261e015e13469b7e0222",
+            "name": "ESD设备",
+            "parent_id": "4c9189655e13261e015e13469b7e0002",
+            "isMenuItem": false,
+            "icon": "el-icon-receiving",
+            "type": "1",
+            "pagePath": "",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "78965415e13261e015e13469b7e0222",
+            "name": "设备基本信息",
+            "parent_id": "563280895e13261e015e13469b7e0222",
+            "route": "esdControl/device/baseInfo",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "esdControl/device/baseInfo",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "d6dd6d6dsd13261e015e13469b7e022",
+            "name": "屏显组配置",
+            "parent_id": "563280895e13261e015e13469b7e0222",
+            "route": "esdControl/device/displayGroup",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "esdControl/device/displayGroup",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "563280895e13261e015e13iiiii222",
+            "name": "ESD看板",
+            "parent_id": "4c9189655e13261e015e13469b7e0002",
+            "route": "esdControl/esdDisplay",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "esdControl/esdDisplay",
+            "remarks": "",
+            "sort": 0
+        },
+        {
+            "id": "563280895e13264569855582ii2227",
+            "name": "屏蔽人员管控",
+            "parent_id": "4c9189655e13261e015e13469b7e0002",
+            "route": "esdControl/shieldControl",
+            "isMenuItem": true,
+            "icon": "el-icon-receiving",
+            "type": "2",
+            "pagePath": "esdControl/shieldControl",
+            "remarks": "",
+            "sort": 0
+        }*@
+    ]
+  }
+}

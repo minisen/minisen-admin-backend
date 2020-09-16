@@ -1,0 +1,21 @@
+﻿@model List<Permission_ShowDTO>
+{
+  "status": "success",
+  "timestamp": "@(DateTime.Now.ToString())",
+  "sendData": {
+    "apiResources":[
+
+        @foreach (var item in Model)
+        {
+            <text>
+                {
+                "id": "@(item.Id)",
+                "method": "@(item.ApiMethod)",
+                "url": "/@(item.ApiUrl)"
+                }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+            </text>
+        }
+
+		]
+  }
+}

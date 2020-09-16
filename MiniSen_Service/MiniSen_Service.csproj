@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiniSen_DTO\MiniSen_DTO.csproj" />
+    <ProjectReference Include="..\MiniSen_Entity\MiniSen_Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CoffeeOOM">
+      <HintPath>..\packages\CoffeeOOM\CoffeeOOM.dll</HintPath>
+    </Reference>
+    <Reference Include="CoffeeSql.Core">
+      <HintPath>..\packages\CoffeeSql\CoffeeSql.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CoffeeSql.Mysql">
+      <HintPath>..\packages\CoffeeSql\CoffeeSql.Mysql.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

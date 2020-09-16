@@ -1,0 +1,46 @@
+﻿@model List<Account_ShowDTO>
+{
+    "status": "success",
+    "timestamp": "@(DateTime.Now.ToString())",
+    "sendData": {
+        "ItemsPaged": [
+            @foreach (var item in Model)
+            {
+                <text>
+                    {
+                        "id": "@(item.Id)",
+                        "name": "@(item.Name)",
+                        "account": "@(item.Account)",
+                        "roles": "@(item.Roles)",
+                        "remarks": "@(item.RemarkInfo)",
+                        "hasRoleIds": [
+                            @Html.Raw(0 == item.HasRoleIds.Count() ? "" : $"\"{string.Join(@""",""", item.HasRoleIds)}\"")
+                        ]
+                    }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+                </text>
+            }
+
+            @*{
+                "id": "2c9180895e172348015e1740805d1112",
+                "account": "F2847785",
+                "name": "王二",
+                "roles": "超级管理员，屏显管理员",
+                "remarks": "二楼守门员",
+                "hasRoleIds": [
+                    "3c9180895e172348015e1740805d1111",
+                    "1c9180895e172348015e1740805d1131"
+                ]
+            },
+            {
+                "id": "2c9180895e172348015e1740805d1111",
+                "account": "F2847786",
+                "name": "张三",
+                "roles": "屏显管理员",
+                "remarks": "性别男",
+                "hasRoleIds": [
+                    "1c9180895e172348015e1740805d1131"
+                ]
+            }*@
+        ]
+    }
+}

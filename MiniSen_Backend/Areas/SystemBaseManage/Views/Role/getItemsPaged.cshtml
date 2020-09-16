@@ -1,0 +1,63 @@
+﻿@model List<Role_ShowDTO>
+{
+    "status": "success",
+    "timestamp": "@(DateTime.Now.ToString())",
+    "sendData": {
+        "ItemsPaged": [
+
+            @foreach (var item in Model)
+            {
+                <text>  
+                    {
+                        "id": "@(item.Id)",
+                        "name": "@(item.Name)",
+                        "sort": "@(item.SortNumber)",
+                        "remarks": "@(item.RemarkInfo)",
+                        "hasApiPermissionIds": [
+                            @Html.Raw(0 == item.HasApiPermissionIds.Count() ? "" : $"\"{string.Join(@""",""", item.HasApiPermissionIds)}\"")
+                        ],
+                        "hasMenuIds": [
+                            @Html.Raw(0 == item.HasMenuIds.Count() ? "" : $"\"{string.Join(@""",""", item.HasMenuIds)}\"")
+                        ]
+                    }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+                </text>
+            }
+        ]
+    }
+}
+
+@*{
+        "status": "success",
+        "timestamp": "@(DateTime.Now.ToString())",
+        "sendData": {
+            "ItemsPaged": [
+                {
+                    "id": "3c9180895e172348015e1740805d1111",
+                    "name": "超级管理员",
+                    "remarks": "拥有本系统至高无上的权限",
+                    "hasApiPermissionIds": [
+                        "1234480895e172348015e1740805d1131",
+                        "2345480895e172348015e1740805d1131"
+                    ],
+                    "hasMenuIds": [
+                        "2c9180895e13261e015e13469b7e0003",
+                        "2c9180895e13261e015e13469b7e0005"
+                    ]
+                },
+                {
+                    "id": "1c9180895e172348015e1740805d1131",
+                    "name": "屏显管理员",
+                    "remarks": "管屏幕的小喽啰",
+                    "hasApiPermissionIds": [
+                        "787963295e172348015e1740805d1131"
+                    ],
+                    "hasMenuIds": [
+                        "2c9180895e13261e015e13469b7e0004",
+                        "2c9180895e13261e015e13469b7e0003",
+                        "2c9180895e13261e015e13469b7e0005",
+                        "2c9180895e13261e015e13469b7e0222"
+                    ]
+                }
+            ]
+        }
+    }*@

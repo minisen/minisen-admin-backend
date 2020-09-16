@@ -1,0 +1,26 @@
+﻿@model List<Message_ShowDTO>
+{
+    "status": "success",
+    "timestamp": "@(DateTime.Now.ToString())",
+    "sendData": {
+        "ItemsPaged": [
+
+            @foreach (var item in Model)
+            {
+                <text>
+                    {
+                        "id": "@(item.Id)",
+                        "sender": "@(item.Sender)",
+                        "senderName": "@(item.SenderName)",
+                        "title": "@(item.Title)",
+                        "content": "@(item.Content)",
+                        "sendTime": "@(item.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss"))",
+                        "type": @(item.Type),
+                        "status": @(item.Status)
+                    }@((Model.IndexOf(item) != Model.Count - 1) ? "," : "")
+                </text>
+            }
+
+        ]
+    }
+}
