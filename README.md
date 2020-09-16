@@ -1,5 +1,5 @@
-# minisen-admin-ui
-MiniSen权限管理系统UI
+# minisen-admin-backend
+MiniSen权限管理系统后端
 
 演示地址：http://81.71.0.216:2021/ <br/>
 演示账号：minisen  密码：minisen
